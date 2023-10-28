@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>三角形判別</title>
+</head>
+<script>
+    var l1, l2, l3, s, area;
+    function triangle() {
+        l1 = parseFloat(document.getElementById("voc1").value);
+        l2 = parseFloat(document.getElementById("voc2").value);
+        l3 = parseFloat(document.getElementById("voc3").value);
+        var fb = document.getElementById('fb');
+        fb.innerHTML = "周長為 " + (l1 + l2 + l3);
+
+        s = (l1 + l2 + l3) / 2;
+
+    if (l1 + l2 > l3 && l1 + l3 > l2 && l2 + l3 > l1) {
+        fb.innerHTML = "此為三角形";
+    } else {
+        fb.innerHTML = "此非三角形";
+        return;
+    }
+
+        if (l1 * l1 + l2 * l2 == l3 * l3 || l1 * l1 + l3 * l3 == l2 * l2 || l2 * l2 + l3 * l3 == l1 * l1) {
+                fb.innerHTML += "<br>此為直角三角形";
+        } else if (l1 * l1 + l2 * l2 > l3 * l3 && l1 * l1 + l3 * l3 > l2 * l2 && l2 * l2 + l3 * l3 > l1 * l1) {
+                fb.innerHTML += "<br>此為銳角三角形";
+        } else {
+                fb.innerHTML += "<br>此為鈍角三角形";
+        }
+
+        area = Math.sqrt(s * (s - l1) * (s - l2) * (s - l3));
+        fb.innerHTML += "<br>面積為 " + area;
+}
+</script>
+<body>
+    請輸入邊長:<br>
+    lenth1= <input type="text" id="voc1"><br>
+    lenth2= <input type="text" id="voc2"><br>
+    lenth3= <input type="text" id="voc3"><br>
+    <button onclick="triangle();">確認</button>
+    <span id="fb"></span>
+
+
+</body>
+</html>

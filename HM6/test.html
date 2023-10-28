@@ -1,0 +1,48 @@
+
+<html>
+<script>
+var sc=0;// declare a variable, get space in RAM for storing data; weak type variable; scope: global 
+//var name=window.prompt("input your name");//immediate mode
+//window.document.writeln("<marquee>Welcome <font color=red>"+name+"</font>!</marquee><br>");//immediate mode
+//document.writeln("<marquee>Welcome <font color=red>"+name+"</font>!</marquee><br>");
+var vv, sc=0;//global variables
+var id=['fb1','fb2'];
+function judgex(nn,idx){
+ var feedback=window.document.getElementById(id[idx]);//local
+  if (nn==1){
+    sc+=5;  
+    feedback.innerHTML="<img src=good.png width=40 height=40><font color=red>Correct!分數:"+sc+"</font>";
+  }
+  else{
+    sc-=5;
+    feedback.innerHTML="<img src=bad.png width=40 height=40><font color=blue>InCorrect!分數:"+sc+"</font>";
+    }
+}//judgex
+
+function judge3(){
+ vv=document.getElementById("voc1").value;
+ var feedback=window.document.getElementById('fb3');
+ if (vv.toUpperCase()=="TIGER") //.toUpperCase()，toLowerCase()
+     {sc+=5;
+      feedback.innerHTML="<img src=good.png width=40 height=40><font color=red>Correct!分數:"+sc+"</font>";
+  } 
+ else {
+    sc-=5;
+    feedback.innerHTML="<img src=bad.png width=40 height=40><font color=blue>InCorrect!分數:"+sc+"</font>";
+ }
+ }//
+
+</script>
+<body>
+
+1. 3+5=? Ans: <button onclick='judgex(1,0);'>8 </button> 
+<button onclick='judgex(2,0);'>15 </button> </input><span id=fb1></span><br>
+
+2. 水落?出 Ans: <input type=button value=頭 onclick='judgex(2,1);'>
+</input><input type=button value=石 onclick='judgex(1,1);'> </input><span id=fb2></span><br>
+
+3. 老虎: <input type=text id='voc1'>
+<button onclick='judge3();'>
+correct?</button></input><span id=fb3></span><br>
+</body>
+</html>

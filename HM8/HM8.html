@@ -1,0 +1,74 @@
+<html>
+    <title>數學表格遊戲</title>
+    <head>Math Game</head>
+    <script>
+        var again=1;
+        var initial;
+        var ques=Array(4);
+        var ans = [
+            'ans1', 'ans2', 'ans3', 'ans4', 'ans4', 'ans5', 'ans6'
+    
+        ];
+        
+        function initial(){
+            for(var i=0;i<initial.length;i++){
+                ques[i]=Math.floor(Math.random()*10+1);   
+            }
+            if(ques[2]%ques[1]!=0||ques[2]%ques[3]!=0)
+            initial();
+            
+
+        }
+        function check(){
+
+        }
+        function retry(){
+
+        }
+
+    </script>
+    <body>
+        <font size="7" >請在格子中輸入數字</font><br>
+        <table border height="500" width="500" style="text-align:center; font-size:35px; font-family:serif;" align='center' valign='middle' >
+            <tr>
+                <td>6</td>
+                <td>x</td>
+                <td><input type="text" id="answer_a1" size=3>
+                </td>
+                <td>=</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>÷</td>
+                <td>----</td>
+                <td>x</td>
+                <td><input type="text" id="answer_a2" size=3>
+                </td>
+                <td>÷</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="answer_a3" size=3></td>
+                <td>x</td>
+                <td>1</td>
+                <td>=</td>
+                <td><input type="text" id="answer_a4" size=3>
+                </td>
+            </tr>
+            <tr>
+                <td>=</td>
+                <td><input type="text" id="answer_a5" size=3></td>
+                <td>=</td>
+                <td>4/2</td>
+                <td>=</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="answer_a6" size=3></td>
+                <td>x</td>
+                <td>5</td>
+                <td>=</td>
+                <td>10</td>
+            </tr>
+        </table>
+        
+    </body>
+</html>

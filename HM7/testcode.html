@@ -1,0 +1,65 @@
+
+<html>
+<title>整體檢查
+</title>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=wmM9ZrJ1C08ne8sWKSHjvO21KzrrVQCJGGTlVyLyMlI7U5zq9uLuE6W-xfF7LXtEm-vggzEWxSppgwziFszvV4wN8gsLis4oGEA7OLSW8FA" charset="UTF-8"></script><script>
+var quest=['貓','魚','豬'];
+var ans=['cat','fish','pig'];
+var qid=['q0','q1','q2'];
+ var sc=0;
+var inputid=['i0','i1','i2'];
+var fb=['fb0','fb1','fb2'];
+function check(){
+ //alert("222222211111");
+ var uans=new Array(3); 
+ var fbobj=new Array(3); 
+ var msg="";
+ for(var i=0;i<=2;i++) {
+     uans[i]=document.getElementById(inputid[i]);
+     fbobj[i]=document.getElementById(fb[i]);
+   }
+  for(var i=0;i<=ans.length-1;i++) {
+          if (uans[i].value==ans[i]) {
+             sc+=10; msg="<font color=red>great!!</font>";
+            }
+          else  {  sc-=10; msg="<font color=blue>bad!!</font>";}
+         fbobj[i].innerHTML=msg;
+    }
+ document.getElementById('fbtotal').innerHTML=sc+"分";
+ var btn=document.getElementById('b0');
+ btn.disabled=true;
+}//check()
+
+function genprob(){
+ var qobj=new Array(3); 
+ for(var i=0;i<=2;i++) qobj[i]=document.getElementById(qid[i]);
+ for(var i=0;i<=2;i++) qobj[i].innerHTML=quest[i]+"英文為:";
+  //  document.getElementById('q0').innerHTML=quest[0]+"英文為:";
+}
+
+function tryagain(){
+ var btn=document.getElementById('b0');
+ btn.disabled=false;
+ sc=0;
+ var uans=new Array(3); 
+ var fbobj=new Array(3); 
+ var msg="";
+ for(var i=0;i<=2;i++) {
+     uans[i]=document.getElementById(inputid[i]);
+     fbobj[i]=document.getElementById(fb[i]);
+   }
+  for(var i=0;i<=ans.length-1;i++) {
+      uans[i].value='';fbobj[i].innerHTML=msg;
+  }
+  document.getElementById('fbtotal').innerHTML="";
+}
+</script>
+<body onload="genprob();">
+1.<span id='q0'>00</span><input type=text id=i0 size=1 ><span id=fb0></span><br>
+2.<span id='q1'></span><input type=text id=i1 style="width:30px"><span id=fb1></span><br>
+3.<span id='q2'></span><input type=text id=i2 style="font-size: .3in; font-weight: bold"><span id=fb2></span><br>
+<button onclick="check();" id='b0'>check answer</button>
+<button onclick="tryagain();" id='b1' style="font-size: .25in; font-weight: bold; color: #FF0000">try again</button><br>
+<span id=fbtotal></span><br>
+<br>
+</body>

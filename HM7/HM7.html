@@ -1,0 +1,157 @@
+
+<html>
+<title>整體檢查
+</title>
+<script>
+var quest = [
+  '2 + 2 = ?',
+  '3 + 5 = ?',
+  '10 - 4 = ?',
+  '6 x 9 = ?',
+  '15 ÷ 3 = ?',
+  '7 + 8 = ?',
+  '12 - 7 = ?',
+  '4 x 6 = ?',
+  '14 ÷ 4 = ?',
+  '9 + 3 = ?',
+  '14 - 5 = ?',
+  '8 x 7 = ?',
+  '18 ÷ 2 = ?',
+  '11 + 9 = ?',
+];
+
+var ans = [
+  4,   
+  8,   
+  6,
+  54,  
+  5,   
+  15,  
+  5,   
+  24, 
+  5,  
+  12, 
+  9,   
+  56,  
+  9,  
+  14,  
+
+];
+
+var qid = [
+  'q1',   
+  'q2',   
+  'q3',   
+  'q4',   
+  'q5',   
+  'q6',   
+  'q7',   
+  'q8',   
+  'q9',   
+  'q10',  
+  'q11',  
+  'q12',  
+  'q13',  
+  'q14',  
+];
+
+
+
+var sc=0;
+var inputid=[ 
+  'i1',   
+  'i2',   
+  'i3',   
+  'i4',   
+  'i5',   
+  'i6',   
+  'i7',   
+  'i8',   
+  'i9',   
+  'i10',  
+  'i11',  
+  'i12',  
+  'i13',
+  'i14'  
+  ];
+var fb=[
+  'fb1',   
+  'fb2',   
+  'fb3',   
+  'fb4',   
+  'fb5',   
+  'fb6',   
+  'fb7',   
+  'fb8',   
+  'fb9',   
+  'fb10',  
+  'fb11',  
+  'fb12',  
+  'fb13',  
+  'fb14',  
+
+];
+
+function check(){
+ var uans=new Array(14); 
+ var fbobj=new Array(14); 
+ var msg="";
+ for(var i=0;i<=13;i++) {
+     uans[i]=document.getElementById(inputid[i]);
+     fbobj[i]=document.getElementById(fb[i]);
+   }
+  for(var i=0;i<=ans.length-1;i++) {
+          if (uans[i].value==ans[i]) {
+             sc+=10; msg="<img src=correct.png width=30>";
+            }
+          else  {  sc-=10; msg="<img src=wrong.jpg width=30>";}
+         fbobj[i].innerHTML=msg;
+    }
+ document.getElementById('fbtotal').innerHTML="總分為:"+sc+"分";
+ var btn=document.getElementById('b0');
+ btn.disabled=true;
+}
+
+function genprob(){
+ var qobj=new Array(14); 
+ for(var i=0;i<=13;i++) qobj[i]=document.getElementById(qid[i]);
+ for(var i=0;i<=13;i++) qobj[i].innerHTML=quest[i]+"答案為:";
+}
+
+function tryagain(){
+ var btn=document.getElementById('b0');
+ btn.disabled=false;
+ sc=0;
+ var uans=new Array(14); 
+ var fbobj=new Array(14); 
+ var msg="";
+ for(var i=0;i<=13;i++) {
+     uans[i]=document.getElementById(inputid[i]);
+     fbobj[i]=document.getElementById(fb[i]);
+   }
+  for(var i=0;i<=ans.length-1;i++) {
+      uans[i].value='';fbobj[i].innerHTML=msg;
+  }
+  document.getElementById('fbtotal').innerHTML=" ";
+}
+</script>
+<body onload="genprob();">
+1.<span id='q1'></span><input type=text id=i1 ><span id=fb1></span><br>
+2.<span id='q2'></span><input type=text id=i2 ><span id=fb2></span><br>
+3.<span id='q3'></span><input type=text id=i3 ><span id=fb3></span><br>
+4.<span id='q4'></span><input type=text id=i4 ><span id=fb4></span><br>
+5.<span id='q5'></span><input type=text id=i5 ><span id=fb5></span><br>
+6.<span id='q6'></span><input type=text id=i6 ><span id=fb6></span><br>
+7.<span id='q7'></span><input type=text id=i7 ><span id=fb7></span><br>
+8.<span id='q8'></span><input type=text id=i8 ><span id=fb8></span><br>
+9.<span id='q9'></span><input type=text id=i9 ><span id=fb9></span><br>
+10.<span id='q10'></span><input type=text id=i10 ><span id=fb10></span><br>
+11.<span id='q11'></span><input type=text id=i11 ><span id=fb11></span><br>
+12.<span id='q12'></span><input type=text id=i12 ><span id=fb12></span><br>
+13.<span id='q13'></span><input type=text id=i13 ><span id=fb13></span><br>
+14.<span id='q14'></span><input type=text id=i14 ><span id=fb14></span><br>
+<button onclick="check();" id='b0'>檢查答案</button>
+<button onclick="tryagain();" id='b1' >重試一次</button><br>
+<span id=fbtotal></span><br>
+<br>
+</body>
